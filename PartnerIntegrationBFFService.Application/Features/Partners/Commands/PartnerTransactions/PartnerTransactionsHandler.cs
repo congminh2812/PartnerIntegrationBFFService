@@ -16,8 +16,6 @@ namespace PartnerIntegrationBFFService.Application.Features.Partners.Commands.Pa
             logger.LogInformation("Processing transaction for partner: {PartnerId}", request.PartnerId);
 
             // 1. Gọi Verification API
-            // Nếu API thất bại (Timeout/Error), service này sẽ ném ra ngoại lệ 
-            // hoặc trả về false tùy theo cách bạn implement ở bước trước.
             var isVerified = await verificationService.VerifyPartnerAsync(request.PartnerId);
 
             if (!isVerified)
@@ -26,7 +24,7 @@ namespace PartnerIntegrationBFFService.Application.Features.Partners.Commands.Pa
                 throw new BadRequestException("Partner verification failed.");
             }
 
-            // 2. Gửi vào Kafka (Asynchronous Messaging)
+            // 2. Gửi vào Kafka
             try
             {
                 await messageProducer.PublishAsync(request, ct);

@@ -5,6 +5,8 @@ Summary
 - Projects:
   - `PartnerIntegrationBFFService.API` — ASP.NET Core Web API (entry point)
   - `PartnerIntegrationBFFService.Application` — domain logic, MediatR handlers, validators, pipeline behaviors
+  - `PartnerIntegrationBFFService.Domain` — Entities, Domain events, Value objects, and repository interfaces.
+  - `PartnerIntegrationBFFService.Persistence` — Entity Framework Core, database migrations, and repository implementations.
   - `PartnerIntegrationBFFService.Infrastructure` — HTTP clients, Kafka producer, DI wiring
   - `PartnerIntegrationBFFService.UnitTests` — test projects
 
@@ -73,17 +75,6 @@ Unit tests, coverage and report generation
 Viewing test results inside Visual Studio
 - Use __Test Explorer__ to run tests.
 - To collect code coverage in Visual Studio: use __Test > Analyze Code Coverage__ or configure Coverage via the test run settings. Also ensure the API project sets `<PreserveCompilationContext>true</PreserveCompilationContext>` if you use `WebApplicationFactory<Program>` in tests.
-
-Common troubleshooting notes
-- Web application factory: if the app uses top-level statements, add a file with a public partial Program:
-  - `PartnerIntegrationBFFService.API/ProgramEntry.cs`
-    ```csharp
-    // minimal entry type so WebApplicationFactory<Program> can locate the entry point
-    public partial class Program { }
-    ```
-- If `WebApplicationFactory` complains about missing `.deps.json`, make sure the API project contains:
-  - `<PreserveCompilationContext>true</PreserveCompilationContext>` and `<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>` in the API `.csproj`, and build before running tests.
-- If mocking `ILogger<T>` with Moq fails due to access restrictions, keep any fake request/response types `public` (or use `InternalsVisibleTo` for `DynamicProxyGenAssembly2`).
 
 Quick checklist to produce coverage reports locally
 1. Ensure projects build: __dotnet build__
