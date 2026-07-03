@@ -1,0 +1,20 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="docker-compose.yml" />
+  </Folder>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Core/">
+    <Project Path="PartnerIntegrationBFFService.Application/PartnerIntegrationBFFService.Application.csproj" />
+    <Project Path="PartnerIntegrationBFFService.Domain/PartnerIntegrationBFFService.Domain.csproj" />
+  </Folder>
+  <Folder Name="/src/Infrastructure/">
+    <Project Path="PartnerIntegrationBFFService.Infrastructure/PartnerIntegrationBFFService.Infrastructure.csproj" />
+    <Project Path="PartnerIntegrationBFFService.Persistence/PartnerIntegrationBFFService.Persistence.csproj" />
+  </Folder>
+  <Folder Name="/src/UI/">
+    <Project Path="PartnerIntegrationBFFService.API/PartnerIntegrationBFFService.API.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="PartnerIntegrationBFFService.UnitTests/PartnerIntegrationBFFService.UnitTests.csproj" />
+  </Folder>
+</Solution>

@@ -1,0 +1,6 @@
+@PartnerIntegrationBFFService.API_HostAddress = http://localhost:5288
+
+GET {{PartnerIntegrationBFFService.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

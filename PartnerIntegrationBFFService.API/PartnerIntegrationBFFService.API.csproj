@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>59c8756e-3baf-4b76-8710-d2ff2a4f1002</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Asp.Versioning.Mvc" Version="8.1.1" />
+		<PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.1" />
+		<PackageReference Include="MediatR" Version="14.2.0" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.23.0" />
+		<PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
+		<PackageReference Include="Serilog.Enrichers.Span" Version="3.1.0" />
+		<PackageReference Include="Serilog.Sinks.Grafana.Loki" Version="8.3.2" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\PartnerIntegrationBFFService.Application\PartnerIntegrationBFFService.Application.csproj" />
+		<ProjectReference Include="..\PartnerIntegrationBFFService.Infrastructure\PartnerIntegrationBFFService.Infrastructure.csproj" />
+	</ItemGroup>
+
+</Project>
